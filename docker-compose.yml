@@ -1,5 +1,7 @@
 sftp_s3s:
-  image: chessracer/sftp-s3fs:latest
+  #image: chessracer/sftp-s3fs:latest
+  build: .
+  container_name: klassik-sftp
   ports:
    - "21:22"
   environment:
@@ -13,4 +15,5 @@ sftp_s3s:
    - apparmor:unconfined
   devices:
    - /dev/fuse
-  command: ${USERNAME}:${PASSWORD}:::sync_to_s3
+  #command: ${USERNAME}:${PASSWORD}:::sync_to_s3
+  command: ${USERNAME}:${PASSWORD}::1001:sync_to_s3

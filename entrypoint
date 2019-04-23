@@ -79,9 +79,10 @@ function createUser() {
         IFS=',' read -a dirParam <<< $dir
         for dirPath in ${dirParam[@]}; do
             dirPath=/home/$user/$dirPath
+            echo "Awesome Sauce"
             echo "Creating and/or setting permissions on $dirPath"
             mkdir -p $dirPath
-            chown -R $user:users $dirPath
+            chown -Rv $user:users $dirPath
         done
     fi
 }
